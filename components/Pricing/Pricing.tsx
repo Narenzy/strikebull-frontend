@@ -1,26 +1,32 @@
-import css from './Pricing.module.css';
-import { pricingPlans } from '../../data/pricing';
-import type { Dispatch, SetStateAction } from 'react';
-import { motion } from 'motion/react';
-import type { ContactPlanId, ContactRequestType } from '../../types/contact.ts';
+"use client";
 
-type PricingProps = {
-  selectedPlanId: ContactPlanId;
-  setSelectedPlanId: Dispatch<SetStateAction<ContactPlanId>>;
-  setRequestType: Dispatch<SetStateAction<ContactRequestType>>;
-};
-export default function Pricing({
-  selectedPlanId,
-  setSelectedPlanId,
-  setRequestType,
-}: PricingProps) {
+import { motion } from "motion/react";
+
+import { pricingPlans } from "@/lib/data/pricing";
+import { useContactRequestStore } from "@/lib/store/contactRequestStore";
+
+import css from "./Pricing.module.css";
+
+export default function Pricing() {
+  const selectedPlanId = useContactRequestStore(
+    (state) => state.selectedPlanId,
+  );
+
+  const setSelectedPlanId = useContactRequestStore(
+    (state) => state.setSelectedPlanId,
+  );
+
+  const setRequestType = useContactRequestStore(
+    (state) => state.setRequestType,
+  );
+
   return (
     <motion.section
       initial={{ opacity: 0, y: 100 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{
         duration: 1,
-        ease: 'easeInOut',
+        ease: "easeInOut",
       }}
       viewport={{ once: false }}
       className={css.pricing_section}
@@ -36,21 +42,33 @@ export default function Pricing({
           {pricingPlans.map((plan) => {
             const isActive = selectedPlanId === plan.id;
 
+            const handlePlanSelect = () => {
+              if (isActive) {
+                setSelectedPlanId(null);
+                setRequestType("contact");
+                return;
+              }
+
+              setSelectedPlanId(plan.id);
+              setRequestType("membership");
+            };
+
+            const handlePlanButtonClick = () => {
+              setSelectedPlanId(plan.id);
+              setRequestType("membership");
+
+              document
+                .getElementById("contacts")
+                ?.scrollIntoView({ behavior: "smooth" });
+            };
+
             return (
               <article
-                className={`${css.pricing_plan_article} ${
-                  isActive ? css.pricing_plan_active : ''
-                }`}
                 key={plan.id}
-                onClick={() => {
-                  if (isActive) {
-                    setSelectedPlanId(null);
-                    setRequestType('contact');
-                  } else {
-                    setSelectedPlanId(plan.id);
-                    setRequestType('membership');
-                  }
-                }}
+                className={`${css.pricing_plan_article} ${
+                  isActive ? css.pricing_plan_active : ""
+                }`}
+                onClick={handlePlanSelect}
               >
                 <h3 className={css.plans_title}>{plan.title}</h3>
 
@@ -80,13 +98,7 @@ export default function Pricing({
                   className={css.pricing_btn}
                   onClick={(event) => {
                     event.stopPropagation();
-
-                    setSelectedPlanId(plan.id);
-                    setRequestType('membership');
-
-                    document
-                      .getElementById('contacts')
-                      ?.scrollIntoView({ behavior: 'smooth' });
+                    handlePlanButtonClick();
                   }}
                 >
                   TARIF WÄHLEN

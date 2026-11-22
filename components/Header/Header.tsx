@@ -84,6 +84,14 @@ export default function Header() {
           </a>
 
           <a
+            href="#programs"
+            className={css.header_link}
+            onClick={handleNavClick}
+          >
+            Programme
+          </a>
+
+          <a
             href="#classes"
             className={css.header_link}
             onClick={handleNavClick}
@@ -97,14 +105,6 @@ export default function Header() {
             onClick={handleNavClick}
           >
             Kontakt
-          </a>
-
-          <a
-            href="#programs"
-            className={css.header_link}
-            onClick={handleNavClick}
-          >
-            Programme
           </a>
         </nav>
 

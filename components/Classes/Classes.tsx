@@ -1,16 +1,20 @@
-import css from "./Classes.module.css";
+"use client";
+
 import { useState } from "react";
-import type { Category } from "../../types/classes";
-import { categories, classesShedule } from "../../data/classes";
 import { motion } from "motion/react";
+
+import type { Category } from "@/types/clases";
+import { categories, clasesShedule } from "@/lib/data/clases";
+
+import css from "./Classes.module.css";
 
 export default function Classes() {
   const [activeCategory, setActiveCategory] = useState<Category>("Alle");
 
   const filteredClasses =
     activeCategory === "Alle"
-      ? classesShedule
-      : classesShedule.filter((item) => item.discipline === activeCategory);
+      ? clasesShedule
+      : clasesShedule.filter((item) => item.discipline === activeCategory);
 
   return (
     <motion.section
@@ -33,11 +37,11 @@ export default function Classes() {
           <div className={css.classes_filter}>
             {categories.map((category) => (
               <button
+                key={category}
+                type="button"
                 className={`${css.classes_btn} ${
                   activeCategory === category ? css.classes_btn_active : ""
                 }`}
-                key={category}
-                type="button"
                 onClick={() => setActiveCategory(category)}
               >
                 {category}
@@ -50,8 +54,8 @@ export default function Classes() {
           <ul className={css.classes_list}>
             {filteredClasses.map((item) => (
               <li
-                className={css.classes_item}
                 key={`${item.day}-${item.time}-${item.discipline}`}
+                className={css.classes_item}
               >
                 <span className={css.classes_day}>{item.day}</span>
                 <span className={css.classes_time}>{item.time}</span>

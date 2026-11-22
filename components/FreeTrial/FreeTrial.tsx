@@ -1,22 +1,27 @@
-import css from './FreeTrial.module.css';
-import type { Dispatch, SetStateAction } from 'react';
-import { motion } from 'motion/react';
-import type { ContactPlanId, ContactRequestType } from '../../types/contact.ts';
+"use client";
 
-type FreeTrialProps = {
-  setSelectedPlanId: Dispatch<SetStateAction<ContactPlanId>>;
-  setRequestType: Dispatch<SetStateAction<ContactRequestType>>;
-};
+import { motion } from "motion/react";
 
-export default function FreeTrial({
-  setSelectedPlanId,
-  setRequestType,
-}: FreeTrialProps) {
+import { useContactRequestStore } from "@/lib/store/contactRequestStore";
+
+import css from "./FreeTrial.module.css";
+
+export default function FreeTrial() {
+  const setSelectedPlanId = useContactRequestStore(
+    (state) => state.setSelectedPlanId,
+  );
+
+  const setRequestType = useContactRequestStore(
+    (state) => state.setRequestType,
+  );
+
   const handleFreeTrialClick = () => {
     setSelectedPlanId(null);
-    setRequestType('trial');
-    document.getElementById('contacts')?.scrollIntoView({ behavior: 'smooth' });
+    setRequestType("trial");
+
+    document.getElementById("contacts")?.scrollIntoView({ behavior: "smooth" });
   };
+
   return (
     <motion.section
       initial={{ opacity: 0, x: -80 }}
@@ -28,17 +33,20 @@ export default function FreeTrial({
     >
       <div className={`container ${css.freetrial_container}`}>
         <p className={css.freetrial_label}>JETZT STARTEN</p>
-        <h2 className={css.freetrial_title}>GRATIS PROBETREINING</h2>
+
+        <h2 className={css.freetrial_title}>GRATIS PROBETRAINING</h2>
+
         <p className={css.freetrial_description}>
           Lerne unsere Trainer kennen, erlebe die Atmosphäre und finde das
           passende Programm für dich.
         </p>
+
         <button
           className={css.freetrial_btn}
           type="button"
           onClick={handleFreeTrialClick}
         >
-          GRATIS PROBETREINING
+          GRATIS PROBETRAINING
         </button>
       </div>
     </motion.section>

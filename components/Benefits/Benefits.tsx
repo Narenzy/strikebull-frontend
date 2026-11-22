@@ -1,5 +1,8 @@
-import css from "./Benefits.module.css";
+"use client";
+
 import { motion } from "motion/react";
+
+import css from "./Benefits.module.css";
 
 const containerVariants = {
   hidden: {},
@@ -62,13 +65,13 @@ export default function Benefits() {
         >
           {benefits.map((benefit) => (
             <motion.li
+              key={benefit.title}
               variants={itemVariants}
               transition={{
                 duration: 0.6,
                 ease: "easeOut",
               }}
               className={css.benefits_item}
-              key={benefit.title}
             >
               <div className={css.benefits_svg_wrapper}>
                 <svg
@@ -79,6 +82,7 @@ export default function Benefits() {
                 >
                   <use href="/svg/sprite.svg#icon-ellipse" />
                 </svg>
+
                 <svg
                   className={css.benefits_svg_check}
                   width="32"
