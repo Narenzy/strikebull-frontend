@@ -1,0 +1,171 @@
+/* Mobile first */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  width: 100%;
+  background-color: #000;
+}
+
+.header_container {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  min-height: 68px;
+}
+
+/* Logo */
+
+.logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.header_logo {
+  display: block;
+  width: 120px;
+  height: 50px;
+}
+
+/* Navigation */
+
+.nav {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 32px;
+
+  width: 100%;
+  min-height: 100dvh;
+  padding: 24px;
+
+  background-color: #000;
+
+  transform: translateX(100%);
+  pointer-events: none;
+
+  transition: transform 450ms ease;
+}
+
+.header_link {
+  font-size: 28px;
+  font-weight: 700;
+  text-decoration: none;
+
+  transition: opacity 300ms ease;
+}
+
+.open {
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+@media (hover: hover) {
+  .header_link:hover {
+    opacity: 0.7;
+  }
+}
+
+.header_link:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 4px;
+}
+
+/* Burger */
+
+.burger_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  color: var(--color-text);
+  background: transparent;
+}
+
+.burger_button_img {
+  display: block;
+  width: 32px;
+  height: 32px;
+}
+
+/* Close button */
+
+.close_button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 44px;
+  height: 44px;
+  padding: 0;
+
+  font-size: 32px;
+  line-height: 1;
+
+  color: #fff;
+  background: transparent;
+}
+
+/* Tablet */
+
+@media only screen and (min-width: 768px) {
+  .nav {
+    position: static;
+
+    flex-direction: row;
+    align-items: center;
+
+    gap: 32px;
+
+    width: auto;
+    min-height: auto;
+    padding: 0;
+
+    background: transparent;
+
+    transform: none;
+    pointer-events: auto;
+
+    transition: none;
+  }
+
+  .header_link {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .burger_button,
+  .close_button {
+    display: none;
+  }
+}
+
+/* Desktop */
+
+@media only screen and (min-width: 1280px) {
+  .nav {
+    gap: 40px;
+  }
+
+  .header_link {
+    font-size: 18px;
+  }
+}

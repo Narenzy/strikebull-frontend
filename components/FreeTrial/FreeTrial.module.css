@@ -1,0 +1,92 @@
+/* Mobile */
+
+/* Free trial section */
+
+.freetrial_section {
+  margin: 35px auto 24px;
+}
+
+/* Free trial container */
+
+.freetrial_container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Free trial content */
+
+.freetrial_label {
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+
+  color: var(--color-accent-red);
+}
+
+.freetrial_title {
+  font-weight: 800;
+  font-size: 31px;
+
+  color: var(--color-text);
+}
+
+.freetrial_description {
+  font-size: 14px;
+
+  color: var(--color-muted);
+}
+
+/* Free trial button */
+
+.freetrial_btn {
+  width: 100%;
+  height: auto;
+  padding: 12px 18px;
+
+  border-radius: 4px;
+
+  font-weight: 600;
+  font-size: 12px;
+
+  color: var(--color-text);
+  background: var(--color-accent-red);
+
+  cursor: pointer;
+
+  transition:
+    background-color 250ms ease,
+    transform 120ms ease;
+}
+
+/* Hover */
+
+@media (hover: hover) {
+  .freetrial_btn:hover {
+    background-color: var(--color-hover-red);
+  }
+}
+
+/* Focus */
+
+.freetrial_btn:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 3px;
+}
+
+/* Active */
+
+.freetrial_btn:active {
+  background-color: var(--color-hover-red);
+  transform: scale(0.98);
+}
+
+/* Tablet */
+
+@media screen and (min-width: 768px) {
+}
+
+/* Desktop */
+
+@media screen and (min-width: 1280px) {
+}
