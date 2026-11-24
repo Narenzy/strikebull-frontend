@@ -172,6 +172,22 @@ export default function Contacts() {
           </div>
 
           <div className={css.form_field}>
+            <label htmlFor="email">E-Mail Bestätigung</label>
+
+            <input
+              className={css.form_input}
+              id="confirEmail"
+              type="email"
+              autoComplete="email"
+              {...register("confirmEmail")}
+            />
+
+            {errors.confirmEmail && (
+              <p className={css.form_error}>{errors.confirmEmail.message}</p>
+            )}
+          </div>
+
+          <div className={css.form_field}>
             <label htmlFor="message">Nachricht</label>
 
             <textarea

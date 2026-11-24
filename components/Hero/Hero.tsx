@@ -5,6 +5,7 @@ import { motion } from "motion/react";
 import { useContactRequestStore } from "@/lib/store/contactRequestStore";
 
 import css from "./Hero.module.css";
+import Link from "next/link";
 
 export default function Hero() {
   const setSelectedPlanId = useContactRequestStore(
@@ -60,9 +61,9 @@ export default function Hero() {
             GRATIS PROBETRAINING BUCHEN
           </a>
 
-          <a href="#about" className={css.hero_btn_learn}>
+          <Link href="/more-info" className={css.hero_btn_learn}>
             MEHR ERFAHREN
-          </a>
+          </Link>
         </div>
       </div>
     </motion.section>

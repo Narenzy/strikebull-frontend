@@ -21,6 +21,14 @@ export const contactSchema = yup.object({
     .email("Ungültige E-Mail-Adresse")
     .max(254, "E-Mail ist zu lang"),
 
+  confirmEmail: yup
+    .string()
+    .required("E-Mail Bestätigung ist erforderlich")
+    .oneOf(
+      [yup.ref("email")],
+      "E-Mail Bestätigung stimmt nicht mit der E-Mail überein",
+    ),
+
   message: yup
     .string()
     .trim()
