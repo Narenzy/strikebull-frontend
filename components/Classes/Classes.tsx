@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { motion } from "motion/react";
 
-import type { Category } from "@/types/clases";
-import { categories, clasesShedule } from "@/lib/data/clases";
+import type { Category } from "@/types/classes";
+import { categories, classesShedule } from "@/lib/data/classes";
 
 import css from "./Classes.module.css";
 
@@ -13,26 +13,32 @@ export default function Classes() {
 
   const filteredClasses =
     activeCategory === "Alle"
-      ? clasesShedule
-      : clasesShedule.filter((item) => item.discipline === activeCategory);
+      ? classesShedule
+      : classesShedule.filter((item) => item.discipline === activeCategory);
 
   return (
     <motion.section
-      initial={{ opacity: 0, y: 100 }}
+      initial={{ opacity: 0, y: 80 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{
         duration: 1,
         ease: "easeInOut",
       }}
-      viewport={{ once: false }}
+      viewport={{ once: true }}
       className={css.classes_section}
       id="classes"
     >
       <div className={`container ${css.classes_container}`}>
-        <div className={css.classes_text_container}>
-          <p className={css.classes_label}>DEIN TRAINING PLANEN</p>
+        <div className={css.classes_header}>
+          <div className={css.classes_text_container}>
+            <p className={css.classes_label}>DEIN TRAINING PLANEN</p>
 
-          <h2 className={css.classes_title}>TRAININGSPLAN</h2>
+            <h2 className={css.classes_title}>TRAININGSPLAN</h2>
+
+            <p className={css.classes_description}>
+              Finde das passende Training und plane deine Woche bei Strikebull.
+            </p>
+          </div>
 
           <div className={css.classes_filter}>
             {categories.map((category) => (
@@ -51,18 +57,27 @@ export default function Classes() {
         </div>
 
         <div className={css.classes_info_container}>
+          <div className={css.classes_table_header}>
+            <span>TAG</span>
+            <span>ZEIT</span>
+            <span>TRAINING</span>
+          </div>
+
           <ul className={css.classes_list}>
             {filteredClasses.map((item) => (
-              <li
+              <motion.li
+                layout
                 key={`${item.day}-${item.time}-${item.discipline}`}
                 className={css.classes_item}
               >
                 <span className={css.classes_day}>{item.day}</span>
+
                 <span className={css.classes_time}>{item.time}</span>
+
                 <strong className={css.classes_discipline}>
                   {item.discipline}
                 </strong>
-              </li>
+              </motion.li>
             ))}
           </ul>
         </div>

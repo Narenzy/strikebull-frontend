@@ -5,6 +5,21 @@ import { motion } from "motion/react";
 
 import css from "./About.module.css";
 
+const aboutImages = [
+  {
+    src: "/img/about/about-1.webp",
+    alt: "MMA Training bei Strikebull MMA Club",
+  },
+  {
+    src: "/img/about/about-2.webp",
+    alt: "Training im Strikebull MMA Club",
+  },
+  {
+    src: "/img/about/about-3.webp",
+    alt: "Strikebull MMA Club Atmosphäre",
+  },
+];
+
 export default function About() {
   return (
     <motion.section
@@ -14,7 +29,7 @@ export default function About() {
         duration: 1,
         ease: "easeInOut",
       }}
-      viewport={{ once: false }}
+      viewport={{ once: true }}
       className={css.about_section}
       id="about"
     >
@@ -31,19 +46,25 @@ export default function About() {
             Weiterentwicklung stehen bei uns im Mittelpunkt.
           </p>
 
-          <a className={css.about_btn_learn} href="#classes">
+          <a className={css.about_btn_learn} href="/more-info">
             MEHR ERFAHREN
           </a>
         </div>
 
-        <Image
-          className={css.about_img}
-          src="/images/about.webp"
-          alt="MMA fighters training at Strikebull MMA Club"
-          width={640}
-          height={480}
-          sizes="(max-width: 767px) 100vw, 50vw"
-        />
+        <div className={css.about_gallery}>
+          {aboutImages.map((image) => (
+            <div className={css.about_gallery_item} key={image.src}>
+              <Image
+                className={css.about_img}
+                src={image.src}
+                alt={image.alt}
+                width={800}
+                height={600}
+                sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 33vw"
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </motion.section>
   );

@@ -1,89 +1,273 @@
 /* Mobile */
 
 .section_programs {
-  margin: 35px auto 24px;
+  margin: 72px 0;
 }
 
-/* Programs container */
+/* Container */
 
 .programs_container {
   display: flex;
   flex-direction: column;
+  gap: 40px;
 }
 
-/* Programs content */
+/* Heading */
+
+.programs_heading {
+  display: flex;
+  flex-direction: column;
+}
 
 .programs_label {
-  max-width: 96px;
-  padding-bottom: 20px;
-
-  font-weight: 600;
-  font-size: 12px;
-  letter-spacing: 0.08em;
+  padding-bottom: 12px;
 
   color: var(--color-accent-red);
+
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
 }
 
 .programs_title {
-  padding-bottom: 20px;
-
-  font-weight: 800;
   font-size: 34px;
+  font-weight: 800;
+  line-height: 1.1;
 }
 
-/* Programs list */
+/* Main content */
 
-.classes_list {
+.programs_content {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 32px;
 }
 
-.classes_item {
+/* Image */
+
+.programs_image_wrapper {
+  width: 100%;
+
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.programs_image {
+  display: block;
+
   width: 100%;
   height: auto;
-  padding: 18px;
-
-  border: 1px solid #2a2a2a;
-  border-radius: 8px;
-
-  background: #151515;
-}
-
-/* Program image */
-
-.classes_image {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-
-  border: 1px solid #252525;
-  border-bottom: 3px solid var(--color-accent-red);
-  border-radius: 6px;
+  aspect-ratio: 4 / 3;
 
   object-fit: cover;
+
+  transition:
+    transform 450ms ease,
+    filter 450ms ease;
 }
 
-/* Program content */
+/* Text */
 
-.classes_title {
-  padding: 15px 0 12px;
+.programs_info {
+  display: flex;
+  flex-direction: column;
+}
 
+.programs_category {
+  padding-bottom: 12px;
+
+  color: var(--color-accent-red);
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.programs_subtitle {
+  padding-bottom: 20px;
+
+  font-size: 26px;
   font-weight: 800;
-  font-size: 18px;
+  line-height: 1.15;
 }
 
-.classes_description {
-  font-size: 16px;
+.programs_description {
+  padding-bottom: 16px;
 
   color: var(--color-muted);
+
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* Features */
+
+.programs_list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  padding: 8px 0 28px;
+}
+
+.programs_list li {
+  position: relative;
+
+  padding-left: 20px;
+
+  color: var(--color-text);
+
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.programs_list li::before {
+  position: absolute;
+  top: 0.7em;
+  left: 0;
+
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background-color: var(--color-accent-red);
+
+  content: "";
+  transform: translateY(-50%);
+}
+
+/* Link */
+
+.programs_link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: fit-content;
+  min-height: 44px;
+  padding: 12px 24px;
+
+  border: 1px solid var(--color-accent-red);
+  border-radius: 50px;
+
+  color: var(--color-text);
+
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+
+  transition:
+    background-color 250ms ease,
+    transform 120ms ease;
+}
+
+/* Hover */
+
+@media (hover: hover) {
+  .programs_image_wrapper:hover .programs_image {
+    transform: scale(1.05);
+    filter: brightness(1.06);
+  }
+
+  .programs_link:hover {
+    background-color: var(--color-accent-red);
+  }
 }
 
 /* Tablet */
 
 @media screen and (min-width: 768px) {
+  .section_programs {
+    margin: 96px 0;
+  }
+
+  .programs_container {
+    gap: 48px;
+  }
+
+  .programs_title {
+    font-size: 40px;
+  }
+
+  .programs_content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 48px;
+  }
+
+  .programs_image_wrapper {
+    height: 100%;
+    min-height: 420px;
+  }
+
+  .programs_image {
+    height: 100%;
+    aspect-ratio: auto;
+  }
+
+  .programs_subtitle {
+    font-size: 30px;
+  }
+
+  .programs_description {
+    font-size: 17px;
+  }
 }
 
 /* Desktop */
 
 @media screen and (min-width: 1280px) {
+  .section_programs {
+    margin: 120px 0;
+  }
+
+  .programs_container {
+    gap: 56px;
+  }
+
+  .programs_title {
+    font-size: 48px;
+  }
+
+  .programs_content {
+    grid-template-columns: minmax(520px, 1fr) minmax(480px, 0.9fr);
+    gap: 80px;
+  }
+
+  .programs_image_wrapper {
+    min-height: 560px;
+  }
+
+  .programs_info {
+    max-width: 560px;
+  }
+
+  .programs_category {
+    padding-bottom: 16px;
+
+    font-size: 13px;
+  }
+
+  .programs_subtitle {
+    padding-bottom: 28px;
+
+    font-size: 38px;
+  }
+
+  .programs_description {
+    padding-bottom: 20px;
+
+    font-size: 18px;
+  }
+
+  .programs_list {
+    padding-bottom: 36px;
+  }
+
+  .programs_list li {
+    font-size: 16px;
+  }
 }

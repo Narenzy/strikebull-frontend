@@ -1,8 +1,8 @@
-import type { Category, ClassItems } from "@/types/clases";
+import type { Category, ClassItems } from "@/types/classes";
 
 export const categories: Category[] = ["Alle", "MMA"];
 
-export const clasesShedule: ClassItems[] = [
+export const classesShedule: ClassItems[] = [
   {
     day: "Dienstag",
     time: "18:30 - 20:00",

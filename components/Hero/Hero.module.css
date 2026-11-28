@@ -4,17 +4,17 @@
 
 .hero_section {
   --hero-image: image-set(
-    url("/images/mobile-1x.webp") 1x,
-    url("/images/mobile-2x.webp") 2x
+    url("/img/hero/strikebull-mobile1x.webp") 1x,
+    url("/img/hero/strikebull-mobile2x.webp") 2x
   );
 
   display: flex;
 
   min-height: 580px;
 
-  background:
-    linear-gradient(#0000008c, #0000008c),
-    var(--hero-image) center / cover no-repeat;
+  background: linear-gradient(#0000008c, #2e2e2e8c), var(--hero-image);
+
+  background-position: center;
 }
 
 /* Hero container */
@@ -124,8 +124,8 @@
 @media screen and (min-width: 768px) {
   .hero_section {
     --hero-image: image-set(
-      url("/images/tablet-1x.webp") 1x,
-      url("/images/tablet-2x.webp") 2x
+      url("/img/hero/strikebull-tablet1x.webp") 1x,
+      url("/img/hero/strikebull-tablet2x.webp") 2x
     );
   }
 }
@@ -135,8 +135,8 @@
 @media screen and (min-width: 1280px) {
   .hero_section {
     --hero-image: image-set(
-      url("/images/desktop-1x.webp") 1x,
-      url("/images/desktop-2x.webp") 2x
+      url("/img/hero/strikebull-hero1x.webp") 1x,
+      url("/img/hero/strikebull-hero2x.webp") 2x
     );
 
     min-height: 100vh;

@@ -1,0 +1,292 @@
+.page {
+  width: 100%;
+  overflow: hidden;
+}
+
+.hero {
+  padding: 120px 0 64px;
+  background-color: #0b0b0b;
+}
+
+.hero_container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.label {
+  margin: 0;
+
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+
+  color: #a8a8a8;
+}
+
+.title {
+  margin: 0;
+
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+
+  color: #ffffff;
+}
+
+.intro {
+  max-width: 720px;
+  margin: 0;
+
+  font-size: 16px;
+  line-height: 1.7;
+
+  color: #c4c4c4;
+}
+
+.about,
+.team,
+.development {
+  padding: 64px 0;
+}
+
+.about {
+  background-color: #111111;
+}
+
+.team {
+  background-color: #0b0b0b;
+}
+
+.development {
+  background-color: #151515;
+}
+
+.about_container,
+.team_container,
+.development_container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.section_heading {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.section_title {
+  max-width: 800px;
+  margin: 0;
+
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1.1;
+  text-transform: uppercase;
+
+  color: #ffffff;
+}
+
+.club_content,
+.development_content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  max-width: 850px;
+}
+
+.club_content p,
+.development_content p {
+  margin: 0;
+
+  font-size: 16px;
+  line-height: 1.7;
+
+  color: #b8b8b8;
+}
+
+.members {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.member {
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  background-color: #151515;
+}
+
+.member_image_wrapper {
+  position: relative;
+
+  width: 100%;
+  aspect-ratio: 4 / 5;
+
+  overflow: hidden;
+}
+
+.member_image {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.member_content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 28px 20px;
+}
+
+.member_role {
+  margin: 0 0 8px;
+
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  color: #c41f26;
+}
+
+.member_name {
+  margin: 0 0 20px;
+
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
+
+  color: #ffffff;
+}
+
+.member_description {
+  margin: 0;
+
+  font-size: 16px;
+  line-height: 1.7;
+
+  color: #b8b8b8;
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+  .hero {
+    padding: 150px 0 88px;
+  }
+
+  .title {
+    font-size: 56px;
+  }
+
+  .intro {
+    font-size: 18px;
+  }
+
+  .about,
+  .team,
+  .development {
+    padding: 88px 0;
+  }
+
+  .section_title {
+    font-size: 42px;
+  }
+
+  .member {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.9fr) 1.1fr;
+    min-height: 430px;
+  }
+
+  .member_image_wrapper {
+    height: 100%;
+    aspect-ratio: auto;
+  }
+
+  .member_content {
+    padding: 40px;
+  }
+
+  .member_name {
+    font-size: 30px;
+  }
+}
+
+/* Desktop */
+@media screen and (min-width: 1280px) {
+  .hero {
+    padding: 180px 0 120px;
+  }
+
+  .hero_container {
+    gap: 28px;
+  }
+
+  .title {
+    font-size: 72px;
+  }
+
+  .intro {
+    font-size: 20px;
+  }
+
+  .about,
+  .team,
+  .development {
+    padding: 120px 0;
+  }
+
+  .about_container,
+  .team_container,
+  .development_container {
+    gap: 56px;
+  }
+
+  .section_title {
+    font-size: 52px;
+  }
+
+  .club_content,
+  .development_content {
+    max-width: 950px;
+  }
+
+  .club_content p,
+  .development_content p {
+    font-size: 18px;
+  }
+
+  .members {
+    gap: 64px;
+  }
+
+  .member {
+    grid-template-columns: 500px 1fr;
+    min-height: 560px;
+  }
+
+  .member_content {
+    padding: 64px;
+  }
+
+  .member_name {
+    font-size: 36px;
+  }
+
+  .member_description {
+    max-width: 620px;
+
+    font-size: 18px;
+  }
+}

@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 
 import css from "./Header.module.css";
+import Link from "next/link";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -43,8 +44,8 @@ export default function Header() {
       id="home"
     >
       <div className={`container ${css.header_container}`}>
-        <a
-          href="#hero"
+        <Link
+          href="/"
           className={css.logo}
           onClick={handleNavClick}
           aria-label="Strikebull MMA Club Startseite"
@@ -57,7 +58,7 @@ export default function Header() {
             className={css.header_logo}
             priority
           />
-        </a>
+        </Link>
 
         <nav
           id="main-navigation"
@@ -75,37 +76,41 @@ export default function Header() {
             </button>
           )}
 
-          <a href="#hero" className={css.header_link} onClick={handleNavClick}>
+          <Link href="/" className={css.header_link} onClick={handleNavClick}>
             Startseite
-          </a>
+          </Link>
 
-          <a href="#about" className={css.header_link} onClick={handleNavClick}>
+          <Link
+            href="/#about"
+            className={css.header_link}
+            onClick={handleNavClick}
+          >
             Über uns
-          </a>
+          </Link>
 
-          <a
-            href="#programs"
+          <Link
+            href="/#programs"
             className={css.header_link}
             onClick={handleNavClick}
           >
             Programme
-          </a>
+          </Link>
 
-          <a
-            href="#classes"
+          <Link
+            href="/#classes"
             className={css.header_link}
             onClick={handleNavClick}
           >
             Trainingsplan
-          </a>
+          </Link>
 
-          <a
-            href="#contacts"
+          <Link
+            href="/#contacts"
             className={css.header_link}
             onClick={handleNavClick}
           >
             Kontakt
-          </a>
+          </Link>
         </nav>
 
         {!isMenuOpen && (
